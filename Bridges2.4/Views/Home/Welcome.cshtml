@@ -1,0 +1,904 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="~/images/br logo.png" type="">
+
+    <title> BRIDGES </title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- font awesome style -->
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="~/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="~/css/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div class="hero_area">
+
+        <div class="hero_bg_box">
+            <div class="bg_img_box">
+                <img src="~/images/hero-bg.png" alt="">
+            </div>
+        </div>
+
+        <!-- header section strats -->
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="index.html">
+                        <span>
+                            BRIDGES
+                        </span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  ">
+                            <li class="nav-item active">
+                                <a class="nav-link" asp-action="Welcome" asp-controller="Home">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+
+                                <a class="nav-link" href="#about-us"> About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#serviceid">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#whyusid">Why Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#teamid">Team</a>
+                            </li>
+                            @if (User.Identity.IsAuthenticated == true)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-action="Profile" asp-controller="User"> <i class="fa fa-user" aria-hidden="true"></i> Welcome @User.Identity.Name</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-action="Login" asp-controller="Account"> <i class="fa fa-user" aria-hidden="true"></i> Login</a>
+                                </li>
+                            }
+                            <form class="form-inline">
+                                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- end header section -->
+        <!-- slider section -->
+        <section class="slider_section ">
+            <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container ">
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <div class="detail-box">
+                                        <h1>
+                                            Travel Faster <br>
+                                            Feel Fresher
+                                        </h1>
+                                        <p>
+                                            Experience the convenience and comfort of train travel. Reach your destination feeling relaxed and
+                                            ready to explore.
+                                        </p>
+                                        <div class="btn-box">
+                                            <a asp-action="Booking" asp-controller="User" class="btn1">
+                                                Book Now
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="img-box">
+                                        <img src="~/images/slider-train2.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="container ">
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <div class="detail-box">
+                                        <h1>
+                                            Unleash <br>
+                                            the Explorer Within
+                                        </h1>
+                                        <p>
+                                            Embark on unforgettable journeys. Discover breathtaking landscapes, charming towns, and vibrant
+                                            cities by train.
+                                           
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="img-box">
+                                        <img src="~/images/slider-train1.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container ">
+                            <div class="row">
+                                <div class="col-md-6 ">
+                                    <div class="detail-box">
+                                        <h1>
+                                            Smart Travel <br>
+                                            Smart Savings
+                                        </h1>
+                                        <p>
+                                            Affordable train travel allows you to experience more. Discover amazing deals and explore new
+                                            destinations without breaking the bank.
+                                            
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="img-box">
+                                        <img src="~/images/slider-ticket.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ol class="carousel-indicators">
+                    <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+                    <li data-target="#customCarousel1" data-slide-to="1"></li>
+                    <li data-target="#customCarousel1" data-slide-to="2"></li>
+                </ol>
+            </div>
+
+        </section>
+        <!-- end slider section -->
+    </div>
+
+
+    <!-- service section -->
+
+    <section class="service_section layout_padding" id="serviceid">
+        <div class="service_container">
+            <div class="container ">
+                <div class="heading_container heading_center">
+                    <h2>
+                        Our <span>Services</span>
+                    </h2>
+                    <div class="line"></div>
+                    <p>
+                        Explore Our Exceptional Services and Discover the Benefits of Booking Your Train Journey with Us
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="~/images/train-icon.png" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Extensive Route Network
+                                </h5>
+                                <p>
+                                    With Bridges you can Explore our extensive selection of train routes, across various destinations. From short commutes to cross-country journeys,
+                                    we offer comprehensive options to suit every traveler’s needs.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="~/images/tickets-icon.png" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Flexible Booking Solutions
+                                </h5>
+                                <p>
+                                    Enjoy flexibility in booking your train tickets with our customizable options. Whether you need to
+                                    adjust travel dates or modify seating preferences, we've got you covered. Experience hassle-free
+                                    booking tailored to your preferences.
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 ">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="~/images/cs-icon.png" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Super Customer Support
+                                </h5>
+                                <p>
+                                    Count on our dedicated customer support team to assist you every step of the way. From inquiries about
+                                    routes and fares to resolving any issues during your journey, we're committed to providing exceptional
+                                    service and support.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-box">
+                    <a asp-action="Booking" asp-controller="User">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end service section -->
+    <!--Start of deals section-->
+   <!-- <div class="heading_container heading_center" style="margin-top: 30px;" id="dealsid">
+        <h2>
+            Our <span>Deals</span>
+            <div class="line" style="width: 100px;"></div>
+        </h2>
+    </div>
+    <div class="containerx">
+        <div class="card">
+            <h3>Weekend Getaway </h3>
+            <div class="details">
+
+                <ul>
+                    <li><i class="fa fa-check"></i> Discounted fares.</li>
+                    <li><i class="fa fa-check"></i>Free refreshments</li>
+                    <li>
+                        <i class="fa fa-check"></i> Flexible booking
+                        .
+                    </li>
+                    <li><i class="fa fa-times" id="icon1"></i>Limited seats</li>
+                    <li><i class="fa fa-times" id="icon1"></i> Non-refundable</li>
+                </ul>
+            </div>
+            <p>$<span>99</span>/Person</p>
+            <button>
+                <a asp-action="Booking" asp-controller="User" class="btn1">
+                    Book Now
+                </a>
+            </button>
+
+        </div>
+        <div class="card">
+            <h3>Family Adventure</h3>
+            <div class="details">
+                <ul>
+                    <li><i class="fa fa-check"></i> Family cabins</li>
+                    <li><i class="fa fa-check"></i>Child discounts</li>
+                    <li><i class="fa fa-check"></i> Spacious seating</li>
+                    <li>
+                        <i class="fa fa-check"></i>Family compartments
+                    </li>
+                    <li><i class="fa fa-times" id="icon1"></i>Limited availability</li>
+                </ul>
+            </div>
+            <p>$<span>199</span>/Four persons</p>
+            <button>Get Family Pass</button>
+
+        </div>
+        <div class="card">
+            <h3> Business Class</h3>
+            <div class="details">
+                <ul>
+                    <li><i class="fa fa-check"></i>Lounge access</li>
+                    <li><i class="fa fa-check"></i> Priority boarding</li>
+                    <li><i class="fa fa-check"></i> Free meals</li>
+                </ul>
+            </div>
+            <p>$<span>140</span>/Person</p>
+            <button>Upgrade Now</button>
+
+        </div>
+    </div>
+
+     -->
+
+
+    <!-- about section -->
+
+    <section class="about_section layout_padding" id="about-us">
+        <div class="container  ">
+            <div class="heading_container heading_center">
+                <h2>
+                    About <span>Us</span>
+                </h2>
+                <div class="line" style="width: 90px; background-color: #03c8ff;"></div>
+                <p>
+                    Discovering Egypt Together: Introducing Bridges - Your Trusted Partner in Effortless Train Travel Experiences
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="img-box">
+                        <img src="~/images/about-img.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="detail-box">
+                        <h3>
+                            We Are BRIDGES
+                        </h3>
+                        <p>
+                            Who are we? We are Bridges, a leading Egyptian company dedicated to providing unparalleled train booking
+                            services. At Bridges, we pride ourselves on simplifying travel experiences and connecting you to the
+                            wonders of Egypt's diverse landscapes and historic sites through convenient and reliable train travel
+                            options. With a team of dedicated professionals committed to delivering exceptional service, we strive to
+                            make your journey with us seamless and unforgettable.
+                        </p>
+                        <p>
+                            From booking your tickets to ensuring your travel plans are executed smoothly, Bridges is your trusted
+                            partner for all your train travel needs in Egypt. Join us as we embark on this journey together, making
+                            every trip a memorable adventure.<br>
+                            <a href="">
+                                Read More
+                            </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end about section -->
+    <!-- why section -->
+
+    <section class="why_section layout_padding" id="whyusid">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h2>
+                    Why <span>Choose</span> Us
+                    <div class="line" style="width: 150px;"></div>
+                </h2>
+            </div>
+            <div class="why_container">
+                <div class="row">
+                    <div class="col-md-3 ">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="~/images/con-icon.jpg" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Convenience
+                                </h5>
+                                <p>
+                                    Effortless Booking with Bridges: Our user-friendly platform ensures hassle-free ticket reservations.
+                                    Say goodbye to queues – Bridges makes booking a breeze.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 ">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="~/images/var-icon.png" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Variety
+                                </h5>
+                                <p>
+                                    Discover Egypt with Bridges: offers scenic routes and diverse destinations.
+                                    Whether you crave culture or seek adventure, our train journeys await.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 ">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="~/images/flex-icon.png" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Flexibility
+                                </h5>
+                                <p>
+                                    In Bridges: We understand that seamless travel requires flexibility. Customize your journey with our options
+                                    for travel dates and seating preferences.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 ">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="~/images/rely-icon.png" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Reliability
+                                </h5>
+                                <p>
+                                    In Bridges: We prioritize passenger safety and security, ensuring secure transactions.
+                                    With Bridges, your journey will be smooth and stress-free.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-box">
+                        <a href="">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+
+    </section>
+
+    <!-- end why section -->
+    <!-- team section -->
+    <section class="team_section layout_padding" id="teamid">
+        <div class="container-fluid">
+            <div class="heading_container heading_center">
+                <h2 class="">
+                    Our <span> Team</span>
+                </h2>
+                <div class="line" style="width: 90px; background-color: #03c8ff;"></div>
+            </div>
+
+            <div class="team_container">
+                <div class="row">
+
+                    <div class="col-lg-2.3 col-sm-2.8">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="~/images/MoIbrahime x.png" class="img1" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    MO.ibrahime
+                                </h5>
+                                <p>
+                                    Back End
+                                </p>
+                            </div>
+                            <div class="social_box">
+                                <a href="#">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2.3 col-sm-2.8">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="~/images/menna.jpg" class="img1" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Menna Mahmoud
+                                </h5>
+                                <p>
+                                    Front End
+                                </p>
+                            </div>
+                            <div class="social_box">
+                                <a href="#">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2.4 col-sm-2.9">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="~/images/rawan.jpg" class="img1" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Rawan Ahmed
+                                </h5>
+                                <p>
+                                    Front End
+                                </p>
+                            </div>
+                            <div class="social_box">
+                                <a href="#">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2.4 col-2.9">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="~/images/hafez.jpg" class="img1" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Ahmed Hafez
+                                </h5>
+                                <p>
+                                    Back End
+                                </p>
+                            </div>
+                            <div class="social_box">
+                                <a href="#">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2.4 col-sm-2.9">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="~/images/hosam.jpg" class="img1" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    Hossam Mostafa
+                                </h5>
+                                <p>
+                                    Back End
+                                </p>
+                            </div>
+                            <div class="social_box">
+                                <a href="#">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2.4 col-sm-2.9">
+                        <div class="box ">
+                            <div class="img-box">
+                                <img src="~/images/abouelghet.jpg" class="img1" alt="">
+                            </div>
+                            <div class="detail-box">
+                                <h5>
+                                    M.Abouelghet
+                                </h5>
+                                <p>
+                                    Front End
+                                </p>
+                            </div>
+                            <div class="social_box">
+                                <a href="#">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- client section -->
+
+    <section class="client_section layout_padding">
+        <div class="container">
+            <div class="heading_container heading_center psudo_white_primary mb_45">
+                <h2>
+                    What Our <span>Customers</span> Says
+                </h2>
+                <div class="line" style="width: 200px;"></div>
+            </div>
+            <div class="carousel-wrap ">
+                <div class="owl-carousel client_owl-carousel">
+                    <div class="item">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="~/images/client 5.jpeg" alt="" class="box-img">
+                            </div>
+                            <div class="detail-box">
+                                <div class="client_id">
+                                    <div class="client_info">
+                                        <h6>
+                                            Ahmed Farahat
+                                        </h6>
+                                        <p>
+                                            Travel Blogger
+                                        </p>
+                                    </div>
+                                    <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                </div>
+                                <p>
+                                    As a travel blogger, I'm always on the lookout for hassle-free ways to book my trips, and Bridges
+                                    exceeded my expectations. Their platform made it so easy to find and book the perfect train journey
+                                    for my vacation
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="~/images/client 2.png" alt="" class="box-img">
+                            </div>
+                            <div class="detail-box">
+                                <div class="client_id">
+                                    <div class="client_info">
+                                        <h6>
+                                            Fatima El Nemr
+                                        </h6>
+                                        <p>
+                                            Freelance Writer
+                                        </p>
+                                    </div>
+                                    <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                </div>
+                                <p>
+                                    As a freelance writer, I travel frequently for work, and Bridges has become my go-to for all my train
+                                    bookings. I value reliability above all else, and Bridges delivers on that front every time.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="~/images/client 3.jpeg" alt="" class="box-img">
+                            </div>
+                            <div class="detail-box">
+                                <div class="client_id">
+                                    <div class="client_info">
+                                        <h6>
+                                            Belal Salah
+                                        </h6>
+                                        <p>
+                                            Family Physician
+                                        </p>
+                                    </div>
+                                    <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                </div>
+                                <p>
+                                    As a family physician, I often seek out stress-free travel options for my family vacations, and
+                                    Bridges made our recent trip unforgettable. The booking process was straightforward, and the journey
+                                    itself was comfortable and enjoyable
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="box">
+                            <div class="img-box">
+                                <img src="~/images/client 4.png" alt="" class="box-img">
+                            </div>
+                            <div class="detail-box">
+                                <div class="client_id">
+                                    <div class="client_info">
+                                        <h6>
+                                            Amira Diab
+                                        </h6>
+                                        <p>
+                                            Business Executive
+                                        </p>
+                                    </div>
+                                    <i class="fa fa-quote-left" aria-hidden="true"></i>
+                                </div>
+                                <p>
+                                    As a busy business executive, flexibility and reliability are crucial when I travel, and Bridges
+                                    delivers on both fronts every time. The variety of routes available is impressive, and the booking
+                                    process is a breeze.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end client section -->
+    <!-- info section -->
+
+    <section class="info_section layout_padding2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 info_col">
+                    <div class="info_contact">
+                        <h4>
+                            Address
+                        </h4>
+                        <div class="contact_link_box">
+                            <a href="">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span>
+                                    EL-Qasaby-Sidi salem
+                                </span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <span>
+                                    Call +20 01066596196
+                                </span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span>
+                                    lordclassic12@gmail.com
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info_social">
+                        <a href="">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 info_col">
+                    <div class="info_detail">
+                        <h4>
+                            Info
+                        </h4>
+                        <p>
+                            Bridges: Your gateway to effortless train travel. Discover and book your ideal journey with ease using our comprehensive and user-friendly platform.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 mx-auto info_col">
+                    <div class="info_link_box">
+                        <h4>
+                            Links
+                        </h4>
+                        <div class="info_links">
+                            <a class="active" asp-action="Welcome" asp-controller="Home">
+                                Home
+                            </a>
+                            <a class="" href="#about-us">
+                                About
+                            </a>
+                            <a class="" href="#serviceid">
+                                Services
+                            </a>
+                            <a class="" href="#whyusid">
+                                Why Us
+                            </a>
+                            <a class="" href="#teamid">
+                                Team
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 info_col ">
+                    <h4>
+                        Subscribe
+                    </h4>
+                    <form action="#">
+                        <input type="text" placeholder="Enter email" />
+                        <button type="submit">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end info section -->
+    <!-- footer section -->
+    <section class="footer_section">
+        <div class="container">
+            <p>
+                &copy; <span id="displayYear"></span> All Rights Reserved By
+                <a href="#">MHR TEAM 2024</a>
+            </p>
+        </div>
+    </section>
+    <!-- footer section -->
+    <!-- jQery -->
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <!-- popper js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <!-- bootstrap js -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <!-- owl slider -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+    </script>
+    <!-- custom js -->
+    <script type="text/javascript" src="js/custom.js"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+    </script>
+    <!-- End Google Map -->
+    <script>
+        window.embeddedChatbotConfig = {
+            chatbotId: "MDAS3nQ6dbbPOJ6vmjGDB",
+            domain: "www.chatbase.co"
+        }
+    </script>
+    <script src="https://www.chatbase.co/embed.min.js"
+            chatbotId="MDAS3nQ6dbbPOJ6vmjGDB"
+            domain="www.chatbase.co"
+            defer>
+    </script>
+
+</body>
+
+</html>

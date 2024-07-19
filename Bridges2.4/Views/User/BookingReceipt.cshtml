@@ -1,0 +1,354 @@
+﻿@model Bridges2._4.Models.BookingReceiptViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="~/images/favicon.png" type="image/png">
+
+    <title> Receipt </title>
+
+
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.css" />
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/css/payment-styleahmed.css">
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <link href="~/css/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+    <div class="hero_area">
+
+        <div class="hero_bg_box">
+            <div class="bg_img_box">
+                <img src="~/images/hero-bg.png" alt="">
+            </div>
+        </div>
+
+
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container ">
+                    <a class="navbar-brand" href="index.html">
+                        <span>
+                            BRIDGES
+                        </span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav  ">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="~/Home">  Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Home#about-us"> About</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="~/Home#serviceid">Services <span class="sr-only">(current)</span> </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Home#whyusid">Why Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="~/Home#teamid">Team</a>
+                            </li>
+
+                            <form class="form-inline">
+                                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <br>
+        <br>
+        <br>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+
+    <div class="invoice-wrapper" id="print-area">
+
+        <div class="invoice">
+            <div class="invoice-container">
+                <div class="invoice-head">
+                    <div class="invoice-head-top">
+                        <div class="invoice-head-top-left text-start">
+                            <h2>BRIDGES</h2>
+                        </div>
+                        <div class="invoice-head-top-right text-end">
+                            <h3>Invoice</h3>
+                        </div>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="invoice-head-middle">
+                        <div class="invoice-head-middle-left text-start">
+                            <p><span class="text-bold">Date</span>: @Model.TodayDate</p>
+                        </div>
+                        <div class="invoice-head-middle-right text-end">
+                            <p><span class="text-bold">Invoice No:</span> <span id="invoice-number"></span></p>
+                        </div>
+                    </div>
+                    <div class="hr"></div>
+                    <div class="invoice-head-bottom">
+                        <div class="invoice-head-bottom-left">
+                            <ul>
+                                <li class="text-bold">Invoiced To:</li>
+                                <li>@Model.Name</li>
+                             
+                            </ul>
+                        </div>
+                        <div class="invoice-head-bottom-right">
+                            <ul class="text-end">
+                                <li class="text-bold">Pay To:</li>
+                                <li>Bridges Inc.</li>
+                                <li>Bridges@gmail.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="overflow-view">
+                    <div class="invoice-body">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td class="text-bold">Description</td>
+                                    <td class="text-bold">Price</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Basic Fare </td>
+                                    <td class="text-start">@Model.Fare L.E </td>
+                                </tr>
+                                <tr>
+                                    <td>Number Of Seats</td>
+                                    <td class="text-start">@Model.NumberOfSeats * @Model.Fare L.E = @Model.TotalPrice L.E </td>
+                                </tr>
+                                <tr>
+                                    <td>Travel Class</td>
+                                    <td class="text-start">@Model.TravelClass  + @Model.Percentage More</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="invoice-body-bottom">
+                            <div class="invoice-body-info-item border-bottom">
+                                <div class="info-item-td text-end text-bold">Total Price</div>
+                                <div class="info-item-id text-start">@Model.LastTotal L.E </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="btn1">
+					<a asp-action="Payment" asp-controller="User" asp-route-id="@Model.BookingId"> <button class="Pay-btn" role="button" >Pay</button></a>
+				</div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+   
+
+    <section class="info_section layout_padding2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 info_col">
+                    <div class="info_contact">
+                        <h4>
+                            Address
+                        </h4>
+                        <div class="contact_link_box">
+                            <a href="">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span>
+                                    EL-Qasaby-Sidi salem
+                                </span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <span>
+                                    Call +20 01066596196
+                                </span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span>
+                                    lordclassic12@gmail.com
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="info_social">
+                        <a href="">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 info_col">
+                    <div class="info_detail">
+                        <h4>
+                            Info
+                        </h4>
+                        <p>
+                            Bridges: Your gateway to effortless train travel. Discover and book your ideal journey with ease using our comprehensive and user-friendly platform.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 mx-auto info_col">
+                    <div class="info_link_box">
+                        <h4>
+                            Links
+                        </h4>
+                        <div class="info_links">
+                            <a class="active" href="~/Home#">
+                                Home
+                            </a>
+                            <a class="active" href="~/Home#about-us">
+                                About us
+                            </a>
+
+
+                            <a class="active" href="~/Home#serviceid">
+                                Services
+                            </a>
+                            <a class="active" href="~/Home#whyusid">
+                                Why Us?
+                            </a>
+                            <a class="active" href="~/Home#teamid">
+                                Team
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 info_col ">
+                    <h4>
+                        Subscribe
+                    </h4>
+                    <form action="#">
+                        <input type="text" placeholder="Enter email" />
+                        <button type="submit">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script>
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            text: "zobry gamed",
+            width: 128,
+            height: 128,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        let pay_section = document.getElementById("print-area");
+        let pay_btn = document.getElementById("pay-btn");
+
+        let payment_section = document.getElementById("payment");
+        let submit_btn = document.getElementById("submit-btn");
+
+        let ticket_section = document.getElementById("ticket");
+        let ticket_btn = document.getElementById("ticket-btn");
+
+        pay_btn.addEventListener("click", function () {
+            pay_section.style.display = "none";
+            payment_section.style.display = "block";
+            ticket_section.style.display = "none";
+        });
+
+        submit_btn.addEventListener("click", function (event) {
+            event.preventDefault();
+            pay_section.style.display = "none";
+            payment_section.style.display = "none";
+            ticket_section.style.display = "block";
+        });
+    </script>
+    <script>
+        function generateRandomInvoiceNumber(length) {
+            var numbers = '0123456789';
+            var letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+            var randomInvoiceNumber = '';
+            for (var i = 0; i < length; i++) {
+                // 70% chance to pick a number, 30% chance to pick a letter
+                if (Math.random() < 0.7) {
+                    randomInvoiceNumber += numbers.charAt(Math.floor(Math.random() * numbers.length));
+                } else {
+                    randomInvoiceNumber += letters.charAt(Math.floor(Math.random() * letters.length));
+                }
+            }
+            return randomInvoiceNumber;
+        }
+
+        var randomInvoiceNumber = generateRandomInvoiceNumber(10); // Generate a random invoice number of 10 characters
+        document.getElementById('invoice-number').textContent = randomInvoiceNumber;
+    </script>
+
+    <script type="text/javascript" src="~/js/jquery-3.4.1.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="~/js/bootstrap.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <
+    <script type="text/javascript" src="~/js/custom.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap"></script>
+
+</body>
+
+</html>

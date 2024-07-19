@@ -1,0 +1,60 @@
+﻿@model Bridges2._4.Models.AddScheduleViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/add3.css" />
+    <title>ADD Scheduel </title>
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <h2 class="active">Add schedule </h2>
+
+
+
+
+            <!-- Login Form -->
+            <form asp-action="AddSchedule" asp-controller="Admin">
+                <select id="cars" asp-for="TrainId">
+
+                    @foreach(var train in Model.trains)
+                    {
+                        <option value="@train.TrainID">@train.TrainName</option>
+                    }
+
+
+                </select>
+                <select id="cars" asp-for="DepartureStation">
+                    @foreach (var station in Model.stations)
+                    {
+                        <option value="@station.StationID">@station.StationName</option>
+                    }
+                </select>
+                <select id="cars" asp-for="DestinationStation" >
+                    @foreach (var station in Model.stations)
+                    {
+                        <option value="@station.StationID">@station.StationName</option>
+                    }
+                </select>
+
+
+                <input type="date" id="login" class="fadeIn second" asp-for="DepartureDate" placeholder="Departure-Date">
+                <input  id="password" class="fadeIn third" asp-for="DepartureTime" placeholder="Departure-Time">
+                <input  id="password" class="fadeIn third" asp-for="Fare" placeholder="Ticket-Fare">
+                <input type="submit" class="fadeIn fourth" value="ADD">
+            </form>
+
+
+
+        </div>
+    </div>
+
+</body>
+</html>

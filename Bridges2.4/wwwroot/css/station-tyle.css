@@ -1,0 +1,467 @@
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: #2a2185;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* =============== Navigation ================ */
+.navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: #00204a;
+  border-left: 10px solid #00204a;
+  transition: 0.5s;
+  overflow: hidden;
+
+ 
+}
+.navigation.active {
+  width: 80px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: var(--blue);
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+.navigation ul li a .icon ion-icon {
+  font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+/* --------- curve outside ---------- */
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+/* ===================== Main ===================== */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.search {
+  position: relative;
+  width: 400px;
+  margin: 0 10px;
+}
+
+.search label {
+  position: relative;
+  width: 100%;
+}
+
+.search label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid var(--black2);
+}
+
+.search label ion-icon {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  font-size: 1.2rem;
+}
+
+.user {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ======================= Cards ====================== */
+
+
+/* ================== Order Details List ============== */
+.details {
+  position: relative;
+  width: 100%;
+  padding: 30px;
+  display: block;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 30px;
+  margin-top: 50px;
+}
+
+.details .recentOrders {
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  background: var(--white);
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+}
+
+.details .cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.cardHeader h2 {
+  font-weight: 1000;
+  font-size:30px;
+  color: #00204a;
+}
+.cardHeader .btn {
+  position: relative;
+  padding: 5px 10px;
+  background: #00204a;
+  text-decoration: none;
+  color: var(--white);
+  border-radius: 6px;
+  font-size:21px;
+  font-weight:400 ;
+  word-spacing:3px;
+}
+.details table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.details table thead td {
+  font-weight: 400;
+}
+.details .recentOrders table tr {
+  color: var(--black1);
+  border-bottom: 1px solid rgba(94, 100, 173, 0.553);
+}
+.details .recentOrders table td a {
+text-decoration: none;
+color: #000;
+}
+.details .recentOrders table td a:hover {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.details .recentOrders table tr:last-child {
+  border-bottom: none;
+}
+.details .recentOrders table tbody tr:hover {
+  background: linear-gradient(to right, #4791c9, #013672);
+  color: var(--white);
+}
+.details .recentOrders table tbody tr:hover button {
+  color: var(--white);
+}
+.details .recentOrders table tr td {
+    padding: 10px;
+    text-align: center !important;
+}
+.details .recentOrders table th {
+  text-align: center !important;
+  font-size: 14px;
+}
+/* .details .recentOrders table tr td:last-child {
+  text-align: end;
+}
+.details .recentOrders table tr td:nth-child(2) {
+  text-align: end;
+}
+.details .recentOrders table tr td:nth-child(3) {
+  text-align: center;
+} */
+
+button {
+  --button-background: oklch(20% 0.0666 var(--hue));
+  --text-base: oklch(45% 0.175 var(--hue));
+  --text-hover: oklch(95% 0.145 calc(var(--hue) + 30));
+
+  --shadow-start: oklch(95% 0.145 var(--hue-2));
+  --shadow-end: oklch(60% 0.29 var(--hue));
+
+  /* No color function, so we can use different opacity values */
+  --shadow-inner: 60% 0.29 var(--hue);
+
+  all: unset;
+
+  /* Text */
+  color: var(--text-base);
+  font: 700 1.125rem/1.2 Raleway, sans-serif;
+  letter-spacing: 0.08em;
+  
+  text-align: center;
+
+  /* Button sizing */
+  padding: 0.85em;
+  max-width: 100%;
+  width: 8em;
+
+  /* Button styling */
+  background-color: var(--button-background);
+  background-clip: padding-box;
+  border: 5px solid var(--text-base);
+  border-radius: 2em;
+  cursor: pointer;
+
+  /* Effects */
+  position: relative;
+  transition: 0.25s ease-out;
+
+  /* Set up pseudo elements */
+  &::before,
+  &::after {
+    content: "";
+    border-radius: inherit;
+    transition: inherit;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* Gradient shadow */
+  &::before {
+    /* Position */
+    inset: -0.2em;
+    z-index: -1;
+
+    /* Effect */
+    background: linear-gradient(var(--shadow-start), var(--shadow-end));
+    filter: blur(1.2em) saturate(1.2);
+
+    /* Animation */
+    transform-origin: bottom;
+    transform: scaleY(0.5);
+    opacity: 0;
+  }
+
+  /* Semi-transparent blended box-shadow brightens up the border */
+  &::after {
+    /* Effect */
+    box-shadow: inset 0 0 0 1px #fff,
+      /* inner pixel */ 0 0 0 4px hsla(0deg, 0%, 100%, 0.5),
+      /* lightened border */ 1px 1px 0 4px #fff; /* outer pixel */
+    mix-blend-mode: overlay;
+
+    /* Animation */
+    opacity: 0;
+  }
+
+  &:hover,
+  &:focus {
+    color: var(--text-hover);
+
+    /*  Lighten border */
+    border-color: transparent;
+
+    /* Inner shadow */
+    box-shadow: inset 0 1.4em 0 oklch(var(--shadow-inner) / 0.1),
+      /* gloss */ inset 0 0 1.4em oklch(var(--shadow-inner) / 0.32),
+      /* inner glow */ 0 1px 1px oklch(var(--shadow-inner) / 0.32); /* bottom line */
+
+    /* Show effects */
+    &::before,
+    &::after {
+      transform: none;
+      opacity: 1;
+    }
+  }
+}
+
+
+/* ====================== Responsive Design ========================== */
+@media (max-width: 991px) {
+  .navigation {
+    left: -300px;
+  }
+  .navigation.active {
+    width: 300px;
+    left: 0;
+  }
+  .main {
+    width: 100%;
+    left: 0;
+  }
+  .main.active {
+    left: 300px;
+  }
+  .cardBox {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .details {
+    grid-template-columns: 1fr;
+  }
+  .recentOrders {
+    overflow-x: auto;
+  }
+  .status.inProgress {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardBox {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .cardHeader h2 {
+    font-size: 20px;
+  }
+  .user {
+    min-width: 40px;
+  }
+  .navigation {
+    width: 100%;
+    left: -100%;
+    z-index: 1000;
+  }
+  .navigation.active {
+    width: 100%;
+    left: 0;
+  }
+  .toggle {
+    z-index: 10001;
+  }
+  .main.active .toggle {
+    color: #fff;
+    position: fixed;
+    right: 0;
+    left: initial;
+  }
+}

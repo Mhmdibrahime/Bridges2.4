@@ -1,0 +1,17 @@
+#coolLink {
+    color: #0077cc; /* Blue color for the link */
+    font-size: 24px; /* Larger font size */
+    text-decoration: none; /* No underline */
+    padding: 10px 20px;
+    border: 2px solid #0077cc;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+    #coolLink:hover {
+        background-color: #0077cc; /* Blue background on hover */
+        color: white; /* White text on hover */
+    }
+    .ahmed{
+        justify-content:center;
+    }

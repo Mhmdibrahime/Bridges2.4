@@ -1,0 +1,37 @@
+﻿@model Bridges2._4.Models.DashBoardViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/update-train.css" />
+    <title>Update Train </title>
+</head>
+<body>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <h2 class="active">Update Train </h2>
+
+
+
+
+            <!-- Login Form -->
+            <form asp-action="Update" asp-controller="Admin" >
+                <input asp-for="TrainName" id="login" class="fadeIn second"  placeholder="T-Name">
+                <input asp-for="TrainNumber" id="password" class="fadeIn third"  placeholder="T-Number">
+                <input asp-for="TrainCapacity" id="password" class="fadeIn third"  placeholder="T-Capacity">
+                <input type="submit" class="fadeIn fourth" value="Update">
+            </form>
+
+
+
+        </div>
+    </div>
+
+</body>
+</html>

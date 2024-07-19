@@ -1,0 +1,45 @@
+﻿@model Bridges2._4.Models.RegisterViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration Form</title>
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="~/css/register-style.css">
+</head>
+<body>
+    <div class="container" id="box">
+        <div class="registration form">
+            <header>Sign Up</header>
+            <form asp-action="Register" asp-controller="Account" method="post">
+                <input asp-for="FName" placeholder="Enter your First Name">
+                <span asp-validation-for="FName"></span>
+                <input asp-for="LName" placeholder="Enter your Second Name">
+                <span asp-validation-for="LName"></span>
+                <input asp-for="PhoneNumber" placeholder="Enter your Phone Number">
+                <span asp-validation-for="PhoneNumber" ></span>
+                <input asp-for="EMail" placeholder="Enter your Email">
+                <span asp-validation-for="EMail" ></span>
+                <input asp-for="Password" type="password" placeholder="Create a Password">
+                <span asp-validation-for="Password"></span>
+                <input asp-for="ComparePassword" type="password" placeholder="Confirm your Password">
+                <span asp-validation-for="ComparePassword"></span>
+                <button type="submit" id="signin-btn">
+                    Sign In
+                </button>
+            </form>
+            <div class="signup">
+                <span>Already have an account? <a asp-action="Login" asp-controller="Account" style="color:#023372;">Login</a></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
